@@ -10,7 +10,14 @@ Musculoskeletal Science and Practice
 
 ## Authors
 
-Joanna Diong, Peter C Carden, Kieran O’Sullivan, Catherine Sherrington, Darren S Reed
+Joanna Diong^1^, Peter C Carden^2^, Kieran O’Sullivan^3,4^, Catherine Sherrington^5^, Darren S Reed^1^
+
+1. School of Medical Sciences, Faculty of Medicine and Health, The University of Sydney, NSW, Australia
+2. School of Public Health, Faculty of Medicine and Health, The University of Sydney,
+NSW, Australia
+3. School of Allied Health, University of Limerick, Ireland 
+4. Ageing Research Centre, University of Limerick, Ireland
+5. Institute of Musculoskeletal Health, The University of Sydney and Sydney Local Health District, NSW, Australia
 
 
 ## Corresponding author 
@@ -66,7 +73,8 @@ Note: for ease and transparency, all raw and processed data are hosted in the OS
 
 ### Calculation of 95% prediction interval 
 
-__eccentric-PI.xlsx__ \ 
+__eccentric-PI.xlsx__ 
+
 __Log files->Log eccentric 25 May 2020 14h07m33s.log__
 
 The spreadsheet was obtaind from https://meta-analysis-books.com/
