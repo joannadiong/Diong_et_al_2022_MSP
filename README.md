@@ -1,6 +1,6 @@
 ## Manuscript
 
-Eccentric exercise improves limb flexibility in healthy adults: A systematic review update and meta-analysis
+Eccentric exercise improves joint flexibility in adults: A systematic review update and meta-analysis
 
 
 ## Journal
