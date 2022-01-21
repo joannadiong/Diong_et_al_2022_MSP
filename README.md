@@ -1,4 +1,4 @@
-## Manuscript
+## Title
 
 Eccentric exercise improves joint flexibility in adults: A systematic review update and meta-analysis
 
@@ -15,11 +15,11 @@ Joanna Diong, Peter C Carden, Kieran O’Sullivan, Catherine Sherrington, Darren
 
 ## Corresponding author 
 
-Joanna Diong \
+Dr Joanna Diong \
 School of Medical Sciences \
 Faculty of Medicine and Health \
 The University of Sydney \
-Sydney, NSW 2006, Australia \
+Sydney, NSW 2006, Australia 
 
 Email: joanna.diong@sydney.edu.au
 
@@ -44,7 +44,7 @@ Main script: Stata do file to analyse data. Calls `Data->eccentric.xlsx`, perfor
 __eccentric-PI_R1.xlsx__ \
 Spreadsheet to calculate prediction interval of overall effect of eccentric exercise. Spreadsheet was obtained from [www.meta-analysis-books.com](www.meta-analysis-books.com).
 
-__scheme-lean3.scheme__
+__scheme-lean3.scheme__ \
 Graph scheme. Place `scheme-lean3.scheme` in Stata directory _Stata16->ado->base->s_
 
 
