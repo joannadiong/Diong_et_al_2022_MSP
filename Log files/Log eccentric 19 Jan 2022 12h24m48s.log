@@ -1,0 +1,728 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  /home/joanna/Dropbox/Projects/eccSR/src/code/stats/Log files/Log eccentric 19 Jan 2022 12h24m48s.log
+  log type:  text
+ opened on:  19 Jan 2022, 12:24:48
+
+.   copy `pathandnameofdofile' `backupdofilename'
+
+.   cd `pathofdatafilesname'
+/home/joanna/Dropbox/Projects/eccSR/src/code/stats/Data
+
+. 
+. 
+.     ********** IMPORT DATA AND CLEAN ********** 
+. 
+.   cd `pathofdatafilesname'  
+/home/joanna/Dropbox/Projects/eccSR/src/code/stats/Data
+
+.   import excel "eccentric_R1.xlsx", sheet("hedgesg") firstrow clear
+(21 vars, 57 obs)
+
+.   
+.   drop in 1
+(1 observation deleted)
+
+. 
+.   quietly {
+
+. 
+.   label variable studyname "Study name"
+
+.   label variable hg "Hedges's g"
+
+.   
+.     ********** PRIMARY ANALYSIS: META-ANALYSIS OF PRIMARY OUTCOME **********
+. 
+.   cd `pathofgraphfilesname'
+/home/joanna/Dropbox/Projects/eccSR/src/code/stats/Graphs
+
+.   
+.   drop if studyname == "Alonso-Fernandez 2019 LG" | /// 
+>           studyname == "Blazevich 2007 No training" | ///
+>           studyname == "Chaconas 2017 Abduction" | ///
+>           studyname == "Chaconas 2017 External rotation" | ///
+>           studyname == "Chaconas 2017 Flexion" | ///
+>           studyname == "Gomes da Silva 2018 VL, Ecc" | ///
+>           studyname == "Gomes da Silva 2018 VL, Ecc + NMES" | ///
+>           studyname == "Gomes da Silva 2018 RF, Ecc + NMES" | ///
+>           studyname == "Kay 2018 Fascicle length" | ///
+>           studyname == "Mahieu 2007 Knee flexed" | ///
+>           studyname == "Potier 2009 Fascicle length" | ///
+>           studyname == "Raj 2011 MG, waitlist" | ///
+>           studyname == "Raj 2011 MG, conventional" | ///
+>           studyname == "Raj 2011 VL, waitlist" | ///
+>           studyname == "Ribeiro-Alvares 2018 Fascicle length" | ///
+>           studyname == "Stefansson 2019 Ecc, bent knee" | ///
+>           studyname == "Stefansson 2019 Ecc + massage, bent knee" | ///
+>           studyname == "Stefansson 2019 Ecc + massage, straight knee" | ///
+>           studyname == "Alonso-Fernandez 2021 PROM" | ///
+>           studyname == "Margaritelis 2021" | ///
+>           studyname == "Marusic 2020"     
+(21 observations deleted)
+
+. 
+.   quietly {
+
+.     
+. 
+.   ** Meta-analysis of primary outcome (Hedges' g effect size of ecc ex)
+. 
+.   metan hg se, random lcols (studyname) effect (Effect size) boxsca(50) texts(110) xlabel(-1 0 1) nowarning  favours(Favours control # Favours exer
+> cise)
+
+Studies included: 35
+Participants included: Unknown
+
+Meta-analysis pooling of aggregate data
+using the random-effects inverse-variance model
+with DerSimonian-Laird estimate of tau²
+
+-------------------------------------------------------------------------------
+                                |   Effect              
+Study name                      |    size     [95% Conf. Interval]   % Weight
+--------------------------------+----------------------------------------------
+Alonso-Fernandez 2019           |     0.238     -0.341     0.818       4.06
+Benford 2020                    |     0.966      0.393     1.539       4.09
+Blazevich 2007                  |    -0.123     -0.946     0.699       3.03
+Blume 2015                      |     0.460     -0.206     1.127       3.67
+Chaconas 2017                   |     0.600      0.017     1.184       4.04
+Coratella 2015 Isokinetic       |     0.345     -0.451     1.140       3.14
+Coratella 2015 Dynamic constant |     0.789     -0.060     1.639       2.94
+Dejaco 2017                     |    -0.018     -0.678     0.643       3.69
+Delvaux 2020                    |     0.579     -0.169     1.327       3.32
+Duclay 2009                     |     0.141     -0.746     1.027       2.81
+Duhig 2019                      |     1.305      0.535     2.076       3.23
+Franchi 2017                    |     1.659      0.422     2.897       1.86
+Gomes da Silva 2018             |     0.522     -0.318     1.363       2.97
+Kay 2018                        |     0.587     -0.174     1.348       3.27
+Mahieu 2007                     |     0.853      0.345     1.362       4.40
+Marzilger 2020 p45              |     0.265     -0.788     1.317       2.30
+Marzilger 2020 p120             |     0.268     -0.913     1.449       1.98
+Marzilger 2020 p210             |     0.224     -0.954     1.402       1.99
+Marzilger 2020 p300             |     0.471     -0.713     1.656       1.97
+Mendiguchia 2020                |    -0.801     -1.797     0.196       2.46
+Potier 2009                     |     0.951      0.099     1.802       2.93
+Presland 2020                   |     1.718      0.724     2.713       2.46
+Quinlan 2021 Young              |     0.483     -0.390     1.357       2.85
+Quinlan 2021 Older              |     0.326     -0.608     1.259       2.65
+Raj 2011                        |     0.043     -0.715     0.802       3.28
+Reeves 2009                     |     0.832     -0.068     1.732       2.76
+Ribeiro-Alvares 2018            |     0.133     -0.708     0.973       2.97
+Seymore 2017                    |     0.200     -0.642     1.041       2.96
+Sharifnezhad 2014 Low load magni|    -0.036     -1.236     1.164       1.94
+Sharifnezhad 2014 High load magn|     0.257     -0.947     1.461       1.93
+Sharifnezhad 2014 Short muscle l|     0.351     -0.857     1.558       1.92
+Sharifnezhad 2014 High lengtheni|     0.765     -0.670     2.199       1.50
+Stefansson 2019                 |     0.021     -0.745     0.786       3.25
+Timmins 2015                    |     3.968      2.704     5.232       1.80
+Vatovec 2021                    |     0.722      0.042     1.401       3.61
+--------------------------------+----------------------------------------------
+Overall, DL                     |     0.541      0.339     0.743     100.00
+-------------------------------------------------------------------------------
+
+Test of overall effect = 0:  z =   5.249  p = 0.000
+
+
+Heterogeneity measures, calculated from the data
+with Conf. Intervals based on Gamma (random-effects) distribution for Q
+--------------------------------------------------------------------
+Measure                         |     Value      df      p-value
+--------------------------------+-----------------------------------
+Cochran's Q                     |     67.64       34      0.001
+                                |            -[95% Conf. Interval]-
+H                               |     1.410     1.066     1.755
+I² (%)                          |     49.7%     12.0%     67.5%
+--------------------------------------------------------------------
+H = relative excess in Cochran's Q over its degrees-of-freedom
+I² = proportion of total variation in effect estimate due to between-study heterogeneity (based on Q)
+
+
+Heterogeneity variance estimates
+----------------------------------------------
+Method                          |     tau²
+--------------------------------+-------------
+DL                              |    0.1744
+----------------------------------------------
+
+Note: with metan version 4 and above, the preferred syntax is for options such as boxsca(50)
+ to be supplied as sub-options to the forestplot() option; see help metan
+
+.   graph save effectrand, replace
+(file effectrand.gph saved)
+
+.   graph export effectrand.tif, width(1200) height(900) replace
+(file effectrand.tif written in TIFF format)
+
+. 
+.  
+.   ** Funnel plot of SE on Hedges' g and Egger's test of bias
+. 
+.   metafunnel hg se, xtitle("Standardised difference (Hedges' g)") ytitle("Standard error") 
+
+Note: default data input format (theta, se_theta) assumed.
+
+.   graph save effectfunnel, replace
+(file effectfunnel.gph saved)
+
+.   graph export effectfunnel.tif, width(1200) height(900) replace
+(file effectfunnel.tif written in TIFF format)
+
+. 
+.   metabias hg se, egger
+
+Note: data input format theta se_theta assumed
+
+Egger's test for small-study effects:
+Regress standard normal deviate of intervention
+  effect estimate against its standard error
+
+.
+Number of studies =  35                                Root MSE      =   1.428
+------------------------------------------------------------------------------
+     Std_Eff |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+       slope |   .3802711    .402531     0.94   0.352    -.4386845    1.199227
+        bias |   .3888157   .9626672     0.40   0.689    -1.569745    2.347377
+------------------------------------------------------------------------------
+
+Test of H0: no small-study effects          P = 0.689
+
+.   
+.   
+.   ** Sensitivity analysis: exclude Timmins
+.   
+.   preserve
+
+.   
+.      drop if studyname == "Timmins 2015"
+(1 observation deleted)
+
+.      
+.      metan hg se, random lcols (studyname) effect (Effect size) boxsca(50) texts(110) xlabel(-1 0 1) nowarning  favours(Favours control # Favours e
+> xercise)
+
+Studies included: 34
+Participants included: Unknown
+
+Meta-analysis pooling of aggregate data
+using the random-effects inverse-variance model
+with DerSimonian-Laird estimate of tau²
+
+-------------------------------------------------------------------------------
+                                |   Effect              
+Study name                      |    size     [95% Conf. Interval]   % Weight
+--------------------------------+----------------------------------------------
+Alonso-Fernandez 2019           |     0.238     -0.341     0.818       5.20
+Benford 2020                    |     0.966      0.393     1.539       5.29
+Blazevich 2007                  |    -0.123     -0.946     0.699       2.98
+Blume 2015                      |     0.460     -0.206     1.127       4.20
+Chaconas 2017                   |     0.600      0.017     1.184       5.15
+Coratella 2015 Isokinetic       |     0.345     -0.451     1.140       3.15
+Coratella 2015 Dynamic constant |     0.789     -0.060     1.639       2.82
+Dejaco 2017                     |    -0.018     -0.678     0.643       4.26
+Delvaux 2020                    |     0.579     -0.169     1.327       3.49
+Duclay 2009                     |     0.141     -0.746     1.027       2.62
+Duhig 2019                      |     1.305      0.535     2.076       3.32
+Franchi 2017                    |     1.659      0.422     2.897       1.44
+Gomes da Silva 2018             |     0.522     -0.318     1.363       2.87
+Kay 2018                        |     0.587     -0.174     1.348       3.39
+Mahieu 2007                     |     0.853      0.345     1.362       6.27
+Marzilger 2020 p45              |     0.265     -0.788     1.317       1.93
+Marzilger 2020 p120             |     0.268     -0.913     1.449       1.57
+Marzilger 2020 p210             |     0.224     -0.954     1.402       1.58
+Marzilger 2020 p300             |     0.471     -0.713     1.656       1.56
+Mendiguchia 2020                |    -0.801     -1.797     0.196       2.13
+Potier 2009                     |     0.951      0.099     1.802       2.81
+Presland 2020                   |     1.718      0.724     2.713       2.14
+Quinlan 2021 Young              |     0.483     -0.390     1.357       2.69
+Quinlan 2021 Older              |     0.326     -0.608     1.259       2.39
+Raj 2011                        |     0.043     -0.715     0.802       3.41
+Reeves 2009                     |     0.832     -0.068     1.732       2.55
+Ribeiro-Alvares 2018            |     0.133     -0.708     0.973       2.87
+Seymore 2017                    |     0.200     -0.642     1.041       2.86
+Sharifnezhad 2014 Low load magni|    -0.036     -1.236     1.164       1.52
+Sharifnezhad 2014 High load magn|     0.257     -0.947     1.461       1.51
+Sharifnezhad 2014 Short muscle l|     0.351     -0.857     1.558       1.50
+Sharifnezhad 2014 High lengtheni|     0.765     -0.670     2.199       1.09
+Stefansson 2019                 |     0.021     -0.745     0.786       3.36
+Vatovec 2021                    |     0.722      0.042     1.401       4.08
+--------------------------------+----------------------------------------------
+Overall, DL                     |     0.489      0.335     0.643     100.00
+-------------------------------------------------------------------------------
+
+Test of overall effect = 0:  z =   6.214  p = 0.000
+
+
+Heterogeneity measures, calculated from the data
+with Conf. Intervals based on Gamma (random-effects) distribution for Q
+--------------------------------------------------------------------
+Measure                         |     Value      df      p-value
+--------------------------------+-----------------------------------
+Cochran's Q                     |     38.99       33      0.218
+                                |            -[95% Conf. Interval]-
+H                               |     1.087     1.000     1.349
+I² (%)                          |     15.4%      0.0%     45.0%
+--------------------------------------------------------------------
+H = relative excess in Cochran's Q over its degrees-of-freedom
+I² = proportion of total variation in effect estimate due to between-study heterogeneity (based on Q)
+
+
+Heterogeneity variance estimates
+----------------------------------------------
+Method                          |     tau²
+--------------------------------+-------------
+DL                              |    0.0315
+----------------------------------------------
+
+Note: with metan version 4 and above, the preferred syntax is for options such as boxsca(50)
+ to be supplied as sub-options to the forestplot() option; see help metan
+
+.      graph save effectrandSens, replace
+(file effectrandSens.gph saved)
+
+.      graph export effectrandSens.tif, width(1200) height(900) replace
+(file effectrandSens.tif written in TIFF format)
+
+.   
+.   restore
+
+.    
+.     
+.     ********** SECONDARY ANALYSIS: PRE-SPECIFIED SUBGROUPS **********
+.     
+.   quietly generate limb1 = 0 if limb == "ll"
+
+.   quietly replace limb1 = 1 if limb == "ul"
+
+.   label define limbs 0 "Lower limb" 1 "Upper limb" 
+
+.   label values limb1 limbs
+
+.   drop limb
+
+.   rename limb1 limb
+
+.   
+.   label define dichotomous 0 "Compared against no intervention" 1 "Compared against another intervention"
+
+.   foreach var of varlist compare2Rx nordic mbi {
+  2.     label values `var' dichotomous
+  3.   }
+
+.   
+.   label variable limb "Limb"
+
+.   label variable compare2Rx "Comparison between two interventions"
+
+.   label variable nordic "Nordic exercise"
+
+.   label variable mbi "Performed MBI analysis"
+
+.   
+.   ** Meta-analysis of primary outcome, by dichotomous secondary outcomes
+. 
+.   display _n
+
+
+
+.   display as text "Meta-analysis of Hedges' g by subgroup " as result "limb"
+Meta-analysis of Hedges' g by subgroup limb
+
+.     
+.   metan hg se, by(limb) random lcols (studyname) effect (Effect size) nowt boxsca(50) texts(110) xlabel(-1 0 1) nowarning  favours(Favours control 
+> # Favours exercise) /*title("Effect by limb")*/
+
+Studies included: 35
+Participants included: Unknown
+
+Meta-analysis pooling of aggregate data
+using the random-effects inverse-variance model
+with DerSimonian-Laird estimate of tau²
+
+---------------------------------------------------------------------
+                                |   Effect    
+Limb and Study name             |    size     [95% Conf. Interval]
+--------------------------------+------------------------------------
+Lower limb                      |
+Alonso-Fernandez 2019           |     0.238     -0.341     0.818    
+Benford 2020                    |     0.966      0.393     1.539    
+Blazevich 2007                  |    -0.123     -0.946     0.699    
+Coratella 2015 Isokinetic       |     0.345     -0.451     1.140    
+Coratella 2015 Dynamic constant |     0.789     -0.060     1.639    
+Delvaux 2020                    |     0.579     -0.169     1.327    
+Duclay 2009                     |     0.141     -0.746     1.027    
+Duhig 2019                      |     1.305      0.535     2.076    
+Franchi 2017                    |     1.659      0.422     2.897    
+Gomes da Silva 2018             |     0.522     -0.318     1.363    
+Kay 2018                        |     0.587     -0.174     1.348    
+Mahieu 2007                     |     0.853      0.345     1.362    
+Marzilger 2020 p45              |     0.265     -0.788     1.317    
+Marzilger 2020 p120             |     0.268     -0.913     1.449    
+Marzilger 2020 p210             |     0.224     -0.954     1.402    
+Marzilger 2020 p300             |     0.471     -0.713     1.656    
+Mendiguchia 2020                |    -0.801     -1.797     0.196    
+Potier 2009                     |     0.951      0.099     1.802    
+Presland 2020                   |     1.718      0.724     2.713    
+Quinlan 2021 Young              |     0.483     -0.390     1.357    
+Quinlan 2021 Older              |     0.326     -0.608     1.259    
+Raj 2011                        |     0.043     -0.715     0.802    
+Reeves 2009                     |     0.832     -0.068     1.732    
+Ribeiro-Alvares 2018            |     0.133     -0.708     0.973    
+Seymore 2017                    |     0.200     -0.642     1.041    
+Sharifnezhad 2014 Low load magni|    -0.036     -1.236     1.164    
+Sharifnezhad 2014 High load magn|     0.257     -0.947     1.461    
+Sharifnezhad 2014 Short muscle l|     0.351     -0.857     1.558    
+Sharifnezhad 2014 High lengtheni|     0.765     -0.670     2.199    
+Stefansson 2019                 |     0.021     -0.745     0.786    
+Timmins 2015                    |     3.968      2.704     5.232    
+Vatovec 2021                    |     0.722      0.042     1.401    
+                                |
+Subgroup, DL                    |     0.566      0.343     0.790    
+--------------------------------+------------------------------------
+Upper limb                      |
+Blume 2015                      |     0.460     -0.206     1.127    
+Chaconas 2017                   |     0.600      0.017     1.184    
+Dejaco 2017                     |    -0.018     -0.678     0.643    
+                                |
+Subgroup, DL                    |     0.369      0.004     0.735    
+--------------------------------+------------------------------------
+Overall, DL                     |     0.541      0.339     0.743
+---------------------------------------------------------------------
+
+Tests of subgroup effect size = 0:
+Lower limb                      z =   4.964  p = 0.000
+Upper limb                      z =   1.979  p = 0.048
+Overall                         z =   5.249  p = 0.000
+
+
+Cochran's Q statistics for heterogeneity
+(other heterogeneity measures are stored in matrices r(ovstats) and r(bystats))
+-----------------------------------------------------------------------------
+Measure                         |     Value      df      p-value       I²
+--------------------------------+--------------------------------------------
+Lower limb                      |     64.70       31      0.000      52.1%
+Upper limb                      |      1.99        2      0.370       0.0%
+Overall                         |     67.64       34      0.001      49.7%
+Between                         |      0.81        1      0.367
+-----------------------------------------------------------------------------
+Note: between-subgroup heterogeneity calculated using DL subgroup weights
+
+Note: with metan version 4 and above, the preferred syntax is for options such as boxsca(50)
+ to be supplied as sub-options to the forestplot() option; see help metan
+
+.   graph save effectrandby_limb, replace
+(file effectrandby_limb.gph saved)
+
+.   graph export effectrandby_limb.tif, width(1200) height(900) replace
+(file effectrandby_limb.tif written in TIFF format)
+
+.   graph drop _all
+
+.   
+.   metareg hg limb, wsse(se)
+
+Meta-regression                                       Number of obs  =      35
+REML estimate of between-study variance               tau2           =   .1642
+% residual variation due to heterogeneity             I-squared_res  =  50.52%
+Proportion of between-study variance explained        Adj R-squared  =  -8.74%
+With Knapp-Hartung modification
+------------------------------------------------------------------------------
+          hg |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+        limb |  -.2092015   .3549283    -0.59   0.560    -.9313085    .5129054
+       _cons |   .5648475   .1202859     4.70   0.000     .3201241     .809571
+------------------------------------------------------------------------------
+
+.     
+.   display _n
+
+
+
+.   display as text "Meta-analysis of Hedges' g by subgroup " as result "compare2Rx"
+Meta-analysis of Hedges' g by subgroup compare2Rx
+
+.     
+.   metan hg se, by(compare2Rx) random lcols (studyname) effect (Effect size) nowt boxsca(50) texts(110) xlabel(-1 0 1) nowarning  favours(Favours co
+> ntrol # Favours exercise) /*title("Effect by comparing two interventions")*/
+
+Studies included: 35
+Participants included: Unknown
+
+Meta-analysis pooling of aggregate data
+using the random-effects inverse-variance model
+with DerSimonian-Laird estimate of tau²
+
+---------------------------------------------------------------------
+Comparison between two          |   Effect    
+interventions and Study name    |    size     [95% Conf. Interval]
+--------------------------------+------------------------------------
+Compared against no interventio |
+Alonso-Fernandez 2019           |     0.238     -0.341     0.818    
+Coratella 2015 Isokinetic       |     0.345     -0.451     1.140    
+Coratella 2015 Dynamic constant |     0.789     -0.060     1.639    
+Delvaux 2020                    |     0.579     -0.169     1.327    
+Duclay 2009                     |     0.141     -0.746     1.027    
+Gomes da Silva 2018             |     0.522     -0.318     1.363    
+Kay 2018                        |     0.587     -0.174     1.348    
+Mahieu 2007                     |     0.853      0.345     1.362    
+Marzilger 2020 p45              |     0.265     -0.788     1.317    
+Marzilger 2020 p120             |     0.268     -0.913     1.449    
+Marzilger 2020 p210             |     0.224     -0.954     1.402    
+Marzilger 2020 p300             |     0.471     -0.713     1.656    
+Potier 2009                     |     0.951      0.099     1.802    
+Ribeiro-Alvares 2018            |     0.133     -0.708     0.973    
+Sharifnezhad 2014 Low load magni|    -0.036     -1.236     1.164    
+Sharifnezhad 2014 High load magn|     0.257     -0.947     1.461    
+Sharifnezhad 2014 Short muscle l|     0.351     -0.857     1.558    
+Sharifnezhad 2014 High lengtheni|     0.765     -0.670     2.199    
+                                |
+Subgroup, DL                    |     0.484      0.281     0.686    
+--------------------------------+------------------------------------
+Compared against another interv |
+Benford 2020                    |     0.966      0.393     1.539    
+Blazevich 2007                  |    -0.123     -0.946     0.699    
+Blume 2015                      |     0.460     -0.206     1.127    
+Chaconas 2017                   |     0.600      0.017     1.184    
+Dejaco 2017                     |    -0.018     -0.678     0.643    
+Duhig 2019                      |     1.305      0.535     2.076    
+Franchi 2017                    |     1.659      0.422     2.897    
+Mendiguchia 2020                |    -0.801     -1.797     0.196    
+Presland 2020                   |     1.718      0.724     2.713    
+Quinlan 2021 Young              |     0.483     -0.390     1.357    
+Quinlan 2021 Older              |     0.326     -0.608     1.259    
+Raj 2011                        |     0.043     -0.715     0.802    
+Reeves 2009                     |     0.832     -0.068     1.732    
+Seymore 2017                    |     0.200     -0.642     1.041    
+Stefansson 2019                 |     0.021     -0.745     0.786    
+Timmins 2015                    |     3.968      2.704     5.232    
+Vatovec 2021                    |     0.722      0.042     1.401    
+                                |
+Subgroup, DL                    |     0.657      0.282     1.033    
+--------------------------------+------------------------------------
+Overall, DL                     |     0.541      0.339     0.743
+---------------------------------------------------------------------
+
+Tests of subgroup effect size = 0:
+Compared against no intervent   z =   4.684  p = 0.000
+Compared against another inte   z =   3.430  p = 0.001
+Overall                         z =   5.249  p = 0.000
+
+
+Cochran's Q statistics for heterogeneity
+(other heterogeneity measures are stored in matrices r(ovstats) and r(bystats))
+-----------------------------------------------------------------------------
+Measure                         |     Value      df      p-value       I²
+--------------------------------+--------------------------------------------
+Compared against no interventio |      7.41       17      0.978       0.0%
+Compared against another interv |     59.72       16      0.000      73.2%
+Overall                         |     67.64       34      0.001      49.7%
+Between                         |      0.64        1      0.425
+-----------------------------------------------------------------------------
+Note: between-subgroup heterogeneity calculated using DL subgroup weights
+
+Note: with metan version 4 and above, the preferred syntax is for options such as boxsca(50)
+ to be supplied as sub-options to the forestplot() option; see help metan
+
+.   graph save effectrandby_compare2Rx, replace
+(file effectrandby_compare2Rx.gph saved)
+
+.   graph export effectrandby_compare2Rx.tif, width(1200) height(900) replace
+(file effectrandby_compare2Rx.tif written in TIFF format)
+
+.       
+.   metareg hg compare2Rx, wsse(se)
+
+Meta-regression                                       Number of obs  =      35
+REML estimate of between-study variance               tau2           =   .1683
+% residual variation due to heterogeneity             I-squared_res  =  50.84%
+Proportion of between-study variance explained        Adj R-squared  = -11.44%
+With Knapp-Hartung modification
+------------------------------------------------------------------------------
+          hg |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+  compare2Rx |    .170864   .2260572     0.76   0.455    -.2890528    .6307809
+       _cons |   .4526034   .1625988     2.78   0.009     .1217936    .7834132
+------------------------------------------------------------------------------
+
+.   
+.   
+.     ********** SECONDARY ANALYSIS: POSTHOC SUBGROUPS **********
+.   
+.   quietly generate outcome1 = 0 if outcome == "prom" | outcome == "arom" | outcome == "rom"
+
+.   quietly replace outcome1 = 1 if outcome == "lfas"
+
+.   label define outcomes 0 "Range of motion" 1 "Fascicle length"
+
+.   label values outcome1 outcomes
+
+.   drop outcome
+
+.   rename outcome1 outcome
+
+.   
+.   
+.   ** Meta-analysis of rom vs lfas
+.   
+.   display _n
+
+
+
+.   display as text "Meta-analysis of Hedges' g by subgroup " as result "outcome"
+Meta-analysis of Hedges' g by subgroup outcome
+
+.     
+.   metan hg se, by(outcome) random lcols (studyname) effect (Effect size) nowt boxsca(50) texts(110) xlabel(-1 0 1) nowarning  favours(Favours contr
+> ol # Favours exercise) /*title("Effect by outcome")*/
+
+Studies included: 35
+Participants included: Unknown
+
+Meta-analysis pooling of aggregate data
+using the random-effects inverse-variance model
+with DerSimonian-Laird estimate of tau²
+
+---------------------------------------------------------------------
+                                |   Effect    
+Subgroup and Study name         |    size     [95% Conf. Interval]
+--------------------------------+------------------------------------
+Range of motion                 |
+Blume 2015                      |     0.460     -0.206     1.127    
+Chaconas 2017                   |     0.600      0.017     1.184    
+Dejaco 2017                     |    -0.018     -0.678     0.643    
+Delvaux 2020                    |     0.579     -0.169     1.327    
+Kay 2018                        |     0.587     -0.174     1.348    
+Mahieu 2007                     |     0.853      0.345     1.362    
+Potier 2009                     |     0.951      0.099     1.802    
+Ribeiro-Alvares 2018            |     0.133     -0.708     0.973    
+Stefansson 2019                 |     0.021     -0.745     0.786    
+Vatovec 2021                    |     0.722      0.042     1.401    
+                                |
+Subgroup, DL                    |     0.521      0.305     0.736    
+--------------------------------+------------------------------------
+Fascicle length                 |
+Alonso-Fernandez 2019           |     0.238     -0.341     0.818    
+Benford 2020                    |     0.966      0.393     1.539    
+Blazevich 2007                  |    -0.123     -0.946     0.699    
+Coratella 2015 Isokinetic       |     0.345     -0.451     1.140    
+Coratella 2015 Dynamic constant |     0.789     -0.060     1.639    
+Duclay 2009                     |     0.141     -0.746     1.027    
+Duhig 2019                      |     1.305      0.535     2.076    
+Franchi 2017                    |     1.659      0.422     2.897    
+Gomes da Silva 2018             |     0.522     -0.318     1.363    
+Marzilger 2020 p45              |     0.265     -0.788     1.317    
+Marzilger 2020 p120             |     0.268     -0.913     1.449    
+Marzilger 2020 p210             |     0.224     -0.954     1.402    
+Marzilger 2020 p300             |     0.471     -0.713     1.656    
+Mendiguchia 2020                |    -0.801     -1.797     0.196    
+Presland 2020                   |     1.718      0.724     2.713    
+Quinlan 2021 Young              |     0.483     -0.390     1.357    
+Quinlan 2021 Older              |     0.326     -0.608     1.259    
+Raj 2011                        |     0.043     -0.715     0.802    
+Reeves 2009                     |     0.832     -0.068     1.732    
+Seymore 2017                    |     0.200     -0.642     1.041    
+Sharifnezhad 2014 Low load magni|    -0.036     -1.236     1.164    
+Sharifnezhad 2014 High load magn|     0.257     -0.947     1.461    
+Sharifnezhad 2014 Short muscle l|     0.351     -0.857     1.558    
+Sharifnezhad 2014 High lengtheni|     0.765     -0.670     2.199    
+Timmins 2015                    |     3.968      2.704     5.232    
+                                |
+Subgroup, DL                    |     0.573      0.280     0.867    
+--------------------------------+------------------------------------
+Overall, DL                     |     0.541      0.339     0.743
+---------------------------------------------------------------------
+
+Tests of subgroup effect size = 0:
+Range of motion                 z =   4.735  p = 0.000
+Fascicle length                 z =   3.827  p = 0.000
+Overall                         z =   5.249  p = 0.000
+
+
+Cochran's Q statistics for heterogeneity
+(other heterogeneity measures are stored in matrices r(ovstats) and r(bystats))
+-----------------------------------------------------------------------------
+Measure                         |     Value      df      p-value       I²
+--------------------------------+--------------------------------------------
+Range of motion                 |      8.12        9      0.522       0.0%
+Fascicle length                 |     59.48       24      0.000      59.6%
+Overall                         |     67.64       34      0.001      49.7%
+Between                         |      0.08        1      0.777
+-----------------------------------------------------------------------------
+Note: between-subgroup heterogeneity calculated using DL subgroup weights
+
+Note: with metan version 4 and above, the preferred syntax is for options such as boxsca(50)
+ to be supplied as sub-options to the forestplot() option; see help metan
+
+.   graph save effectrandby_outcome, replace
+(file effectrandby_outcome.gph saved)
+
+.   graph export effectrandby_outcome.tif, width(1200) height(900) replace
+(file effectrandby_outcome.tif written in TIFF format)
+
+.   
+.   metareg hg outcome, wsse(se)
+
+Meta-regression                                       Number of obs  =      35
+REML estimate of between-study variance               tau2           =   .1695
+% residual variation due to heterogeneity             I-squared_res  =  51.18%
+Proportion of between-study variance explained        Adj R-squared  = -12.23%
+With Knapp-Hartung modification
+------------------------------------------------------------------------------
+          hg |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     outcome |   .0664538   .2383265     0.28   0.782    -.4184252    .5513328
+       _cons |   .4980178   .1917961     2.60   0.014     .1078056    .8882299
+------------------------------------------------------------------------------
+
+.   
+.   
+.   ** Funnel plot of SE on Hedges' g: by range of motion and fascicle length
+. 
+.   metafunnel hg se, by(outcome) xtitle("Standardised difference (Hedges' g)") ytitle("Standard error") legend(label(1 "Range of motion") label(2 "F
+> ascicle length"))
+
+Note: default data input format (theta, se_theta) assumed.
+
+.   graph save effectfunnel_by, replace
+(file effectfunnel_by.gph saved)
+
+.   graph export effectfunnel_by.tif, width(1200) height(900) replace
+(file effectfunnel_by.tif written in TIFF format)
+
+. 
+.   metabias hg se, egger
+
+Note: data input format theta se_theta assumed
+
+Egger's test for small-study effects:
+Regress standard normal deviate of intervention
+  effect estimate against its standard error
+
+.
+Number of studies =  35                                Root MSE      =   1.428
+------------------------------------------------------------------------------
+     Std_Eff |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+       slope |   .3802711    .402531     0.94   0.352    -.4386845    1.199227
+        bias |   .3888157   .9626672     0.40   0.689    -1.569745    2.347377
+------------------------------------------------------------------------------
+
+Test of H0: no small-study effects          P = 0.689
+
+. 
+.   
+.   
+.   
+.   graph drop _all
+
+.   
+. 
+.     ********** END. ********** 
+. 
+.   log close
+      name:  <unnamed>
+       log:  /home/joanna/Dropbox/Projects/eccSR/src/code/stats/Log files/Log eccentric 19 Jan 2022 12h24m48s.log
+  log type:  text
+ closed on:  19 Jan 2022, 12:24:53
+-----------------------------------------------------------------------------------------------------------------------------------------------------
