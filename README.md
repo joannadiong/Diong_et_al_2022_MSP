@@ -10,7 +10,7 @@ Musculoskeletal Science and Practice
 
 ## Authors
 
-Joanna Diong^1^, Peter C Carden^2^, Kieran O’Sullivan^3,4^, Catherine Sherrington^5^, Darren S Reed^1^
+Joanna Diong [1], Peter C Carden [2], Kieran O’Sullivan [3,4], Catherine Sherrington [2,5], Darren S Reed [1]
 
 1. School of Medical Sciences, Faculty of Medicine and Health, The University of Sydney, NSW, Australia
 2. School of Public Health, Faculty of Medicine and Health, The University of Sydney,
@@ -33,10 +33,10 @@ Email: joanna.diong@sydney.edu.au
 
 ## Data files 
 
-__Data->eccentric_R1.xlsx__ \
+__Data -> eccentric_R1.xlsx__ \
 Excel file of effect sizes extracted from full texts of trials included in the meta-analysis. Data from this file were used in the meta-analyses to generate Figures 2-5 of the manuscript.
 
-__Data->EccentricexSR_DATA_2022-01-19_1344.xlsx__ \
+__Data -> EccentricexSR_DATA_2022-01-19_1344.xlsx__ \
 Excel file of descriptive data extracted into RedCap from full texts of trials included in the systematic review. 
 Data from this file are not analysed with computer code; calculations were done in the spreadsheet. 
 
@@ -75,7 +75,7 @@ Note: for ease and transparency, all raw and processed data are hosted in the OS
 
 __eccentric-PI.xlsx__ 
 
-__Log files->Log eccentric 25 May 2020 14h07m33s.log__
+__Log files -> Log eccentric 25 May 2020 14h07m33s.log__
 
 The spreadsheet was obtaind from https://meta-analysis-books.com/
 
@@ -87,13 +87,13 @@ Enter data into spreadsheet from log file lines 66 to 145.
 
 ### Figures 
 
-* Graphs->effectfunnel
-* Graphs->effectfunnel_by
-* Graphs->effectrand
-* Graphs->effectrandby_outcome
-* Graphs->effectrandby_compare2Rx
-* Graphs->effectrandby_limb
-* Graphs->effectrandSens
+* Graphs -> effectfunnel
+* Graphs -> effectfunnel_by
+* Graphs -> effectrand
+* Graphs -> effectrandby_outcome
+* Graphs -> effectrandby_compare2Rx
+* Graphs -> effectrandby_limb
+* Graphs -> effectrandSens
 
 These are Stata .gph graph and .tif figures of 
 - funnel plots
@@ -104,8 +104,8 @@ These are Stata .gph graph and .tif figures of
 
 ### Log files
 
-* Log files-> "Do eccentric 19 Jan 2022 12h24m48s.txt"
-* Log files-> "Log eccentric 19 Jan 2022 12h24m48s.txt"
+* Log files -> "Do eccentric 19 Jan 2022 12h24m48s.txt"
+* Log files -> "Log eccentric 19 Jan 2022 12h24m48s.txt"
 
 These are date and time-stamped files recording the Stata Do file code and Log of output.
 
