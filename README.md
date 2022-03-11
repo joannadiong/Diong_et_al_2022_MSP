@@ -10,14 +10,13 @@ Musculoskeletal Science and Practice
 
 ## Authors
 
-Joanna Diong [1], Peter C Carden [2], Kieran O’Sullivan [3,4], Catherine Sherrington [2,5], Darren S Reed [1]
+Joanna Diong [1], Peter C Carden [2], Kieran O’Sullivan [3], Catherine Sherrington [2,4], Darren S Reed [1]
 
 1. School of Medical Sciences, Faculty of Medicine and Health, The University of Sydney, NSW, Australia
 2. School of Public Health, Faculty of Medicine and Health, The University of Sydney,
 NSW, Australia
-3. School of Allied Health, University of Limerick, Ireland 
-4. Ageing Research Centre, University of Limerick, Ireland
-5. Institute of Musculoskeletal Health, The University of Sydney and Sydney Local Health District, NSW, Australia
+3. Ageing Research Centre and Sports and Human Performance Centre, University of Limerick, Ireland
+4. Institute of Musculoskeletal Health, The University of Sydney and Sydney Local Health District, NSW, Australia
 
 
 ## Corresponding author 
